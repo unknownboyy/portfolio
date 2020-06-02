@@ -171,13 +171,16 @@
             allowMail = true;
           }, 1000);
 
-          $.post('https://gentle-springs-32624.herokuapp.com/', JSON.stringify(requestObject), function (data,status) {
-            if (status == "success") {
-              alert("Message Sent Successfully...")
-              window.location.reload()
-            } else {
-              alert("Cannot Send Your Message...!!\nPlease try calling on phone or email")
-              window.location.reload()
+          $.ajax({
+            url: 'https://gentle-springs-32624.herokuapp.com/',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(requestObject),
+            success: function () {
+              console.log("Message Sent Successfully...");
+            },
+            error: function () {
+              console.log("Cannot Send Your Message...!!\nPlease try calling on phone or email")
             }
           })
         });
