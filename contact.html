@@ -173,9 +173,11 @@
 
           $.post('https://gentle-springs-32624.herokuapp.com/', requestObject, function (data,status) {
             if (status == "success") {
-              console.log("Message Sent Successfully...");
+              alert("Message Sent Successfully...")
+              window.location.reload()
             } else {
-              console.log("Cannot Send Your Message...!!\nPlease try calling on phone or email")
+              alert("Cannot Send Your Message...!!\nPlease try calling on phone or email")
+              window.location.reload()
             }
           })
         });
